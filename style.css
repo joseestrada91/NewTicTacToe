@@ -1,13 +1,31 @@
-body {
-	text-align: center;
+body.ng-scope {
+	width: 95%
 }
 
+#playerOne{
+	width: 200px;
+	float: left;
+	text-align: center;
+	font-size: 23px;
+	margin-left: 50px;
+}
 
 #container {
-	width: 400px;
+	width: 318px;
 	text-align: center;
 	margin: 0 auto;
-	overflow: hidden;
+}
+
+.whoStarts {
+	font-size: 40px;
+	line-height: 0px;
+}
+
+#playerTwo{
+	width: 200px;
+	float: right;
+	text-align: center;
+	font-size: 23px;
 }
 
 .cell {
@@ -17,4 +35,5 @@ body {
 	border: 3px solid blue;
 	color: black;
 	float: left;
+	font-size: 95px;
 }
