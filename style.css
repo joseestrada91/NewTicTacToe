@@ -1,0 +1,21 @@
+body {
+	text-align: center;
+}
+
+
+#container {
+	width: 400px;
+	text-align: center;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.cell {
+	width: 100px;
+	height: 100px;
+	background-color: lightblue;
+	border: 3px solid blue;
+	color: black;
+	float: left;
+}
+

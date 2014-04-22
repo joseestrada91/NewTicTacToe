@@ -1,0 +1,17 @@
+<!doctype html>
+<html x-ng-app="">
+<head>
+	<meta charset="UTF-8">
+	<title>Tic Tac Toe</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body x-ng-controller="GameController">
+	<div id="container">
+	<p x-ng-bind="end"></p>
+	<div class="cell" x-ng-repeat="c in cells track by $index" x-ng-click="playerTurn($index);">{{c}}</div> 
+	
+	</div>
+</body>
+</html>
