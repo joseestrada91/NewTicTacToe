@@ -2,9 +2,15 @@ var GameController = function($scope) {
 	
 	$scope.cells= ['', '', '', '', '', '', '', '', ''];
 	var sepArray= [];
-	var player = 1;
-	// $scope.isXturn = 1;
-	var isXturn = 1;
+	// Generates a random number between 1 and 2 decide who goes first
+	var isXturn = Math.floor((Math.random()*2)+1);
+		// setting the display conditions to let the users know who goes first. 
+		if (isXturn == 1) {
+			$scope.playerStart = "X Starts!";
+		} else {
+			$scope.playerStart = "O Starts!";
+		}
+	
 	var moves = 0;
 
 	$scope.playerTurn = function(index) {
@@ -20,7 +26,7 @@ var GameController = function($scope) {
 			} else {
 				alert("Please Choose Another box.");
 			}
-		} else if (isXturn === 2) {   
+		} else if (isXturn == 2) {
 			if ($scope.cells[index] === '') {
 				sepArray[index] = 2;
 				console.log(sepArray);
@@ -33,35 +39,52 @@ var GameController = function($scope) {
 			}
 		}
 	};
+
 	var maxMoves = function() {
-		if (moves < 8) {
+		if (moves < 9) {
 			moves++;
 			console.log(moves);
 			winOrLose();
 
 		} else {
 			winOrLose();
-			console.log("Game Over");
+			$scope.end = ("Game Over");
 
 
 
 		}
 	};
-	var winningNum = [];
 	var winOrLose = function() {
-		winningNum = [sepArray[0] + sepArray[1] + sepArray[2], sepArray[3] + sepArray[4] + sepArray[5], sepArray[6] + sepArray[7] + sepArray[8]];
+		var winningNum = [sepArray[0] + sepArray[1] + sepArray[2], sepArray[3] + sepArray[4] + sepArray[5], sepArray[6] + sepArray[7] + sepArray[8]];
 			for (var i = 0; i < winningNum.length; i++) {
-			 	winningNum[i];
-				if (winningNum[i] === 3) { 
-					console.log("Player 1 Wins");
+				if (winningNum[i] === 3) {
+					alert("Player 1 Wins");
 				} else if (winningNum[i] === 6) {
-					console.log("Player 2 Wins");
+					alert("Player 2 Wins");
 				} else {
 					console.log("Its a tie");
 				}
 			}
-
-
+		var winningNum2 = [sepArray[0] + sepArray[3] + sepArray[6], sepArray[1] + sepArray[4] + sepArray[7], sepArray[2] + sepArray[5] + sepArray[8]];
+			for (var i = 0; i < winningNum.length; i++) {
+				if (winningNum2[i] === 3) {
+					alert("Player 1 Wins");
+				} else if (winningNum2[i] === 6) {
+					alert("Player 2 Wins");
+				} else {
+					console.log("Its a tie");
+				}
+			}
+		var winningNum3 = [sepArray[0] + sepArray[4] + sepArray[8], sepArray[2] + sepArray[4] + sepArray[6]];
+			for (var i = 0; i < winningNum.length; i++) {
+				if (winningNum3[i] === 3) {
+					alert("Player 1 Wins");
+				} else if (winningNum3[i] === 6) {
+					alert("Player 2 Wins");
+				} else {
+					console.log("Its a tie");
+				}
+			}
 		};
 };
 	
