@@ -10,16 +10,23 @@
 <body x-ng-controller="GameController">
 	<div id="playerOne">
 		<h2>Player 1</h2>
-		<p x-ng-bind="updateScore"></p>
+		<p x-ng-bind="oneScore"></p>
+		<input ng-keypress="count = count + 1" ng-init="count=0">
+		key press count: {{count}}
+		<!-- <p x-ng-keypress="onKeyPress();"></p> -->
+		<p id="countGame">Count: 
+		</p>
 	</div>
 	<div id="playerTwo">
 		<h2>Player 2</h2>
+		<p x-ng-bind="twoScore"></p>
 	</div>
 	<div id="container">
-		<h1 class="gameOver" x-ng-bind="end"><h3 class="winner" x-ng-bind="whoWins"></h3></h1>
+		<h1 class="gameOver" x-ng-bind="end"></h1>
 		<h4 class="whoStarts" x-ng-bind="playerStart"></h4>
 	<div class="cell" x-ng-repeat="c in cells track by $index" x-ng-click="playerTurn($index);">{{c}}</div> 
 		<p x-ng-bind="playerNum"></p>
+		<h3 class="winner" x-ng-bind="whoWins"></h3>
 	</div>
 </body>
 </html>
